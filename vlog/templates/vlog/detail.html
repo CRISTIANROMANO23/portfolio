@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.5">
-  <title>CRISTIAN ROMANO</title>
+  <title>{{ vlog.title }}</title>
 
 
   <!-- Bootstrap core CSS -->
@@ -40,44 +40,28 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link" href="https://www.facebook.com/cristian.romano.9">Facebook</a>
           <a class="nav-item nav-link" href="{%static 'Building_Django_2.0_Web_Applications.pdf'%}">Resumen</a>
-          <a class="nav-item nav-link" href="{% url 'allvlogs' %}">Vlog</a>
+          <a class="nav-item nav-link active" href="{% url 'allvlogs' %}">Vlog</a>
         </div>
       </div>
     </nav>
   </header>
 
   <main role="main">
+    <div class="container">
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">DJANGO VLOG</h1>
-        <p class="lead text-muted">En esta pagina se puede encontrar un poco de lo que se trata Django , espero que te sirva. Saludos! atte Cristian.</p>
-        <p>
-          <a href="mailto:cristianromano2@gmail.com" class="btn btn-primary my-2">Contactame</a>
-        </p>
-        <img src= "{% static 'django-1.jpg' %}" height="300" width="600" />
-      </div>
-    </section>
 
-    <div class="album py-5 bg-light">
-      <div class="container">
 
-        <div class="row">
+  <h1 class='text-center pt-3' >{{ vlog.title }}</h1>
+  <p class="text-center">{{ vlog.pub_date }}</p>
+  <br />
+  <p class= "text-center"><img class="img-fluid" src="{{ vlog.image.url }}" height="300" width="400"/> </p>
+  <br />
+  <h3><p class='text-center'>{{ vlog.body }}</p></h3>
 
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src ='{{ job.image.url }}' />
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
 
+
+
+  </div>
   </main>
 
   <footer class="text-muted">
